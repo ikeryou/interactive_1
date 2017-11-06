@@ -52,51 +52,21 @@ function update() {
   dotPos.x += (tx - dotPos.x) * ease;
   dotPos.y += (ty - dotPos.y) * ease;
 
-  // 目標値に引っ張られるように近く
-  // power = 0.7; // 大きいとより引っ張られるようになる
-  // dotPos.vx += (tx - dotPos.x) * power;
-  // dotPos.vy += (ty - dotPos.y) * power;
-  // dotPos.x += (dotPos.vx *= power);
-  // dotPos.y += (dotPos.vy *= power);
-
-  // ２地点の距離
-  dx = tx - dotPos.x;
-  dy = ty - dotPos.y;
-  dist = Math.sqrt(dx * dx + dy * dy);
-
-  // スケール
-  scale = map(dist, 1, 4, 0, sw * 0.25);
-
-  // ボーダーの太さ
-  borderWidth = map(dist, 5, 50, 0, sw * 0.5);
-  // borderWidth = 0;
-
   // 背景色
-  alpha = map(dist, 0, 1, 0, sw * 0.1);
-  backgroundColor = lerpColor({r:0,g:176,b:255}, {r:211,g:47,b:47}, alpha);
-
-  // ボーダー色
-  alpha = map(dist, 0, 1, 0, sw * 0.25);
-  borderColor = backgroundColor;
+  backgroundColor = lerpColor({r:0,g:176,b:255}, {r:211,g:47,b:47}, 1);
 
   // オブジェクトの情報更新
   // 位置指定時、基準点を真ん中にするためサイズの半分だけずらす
   TweenMax.set(dot, {
     x:dotPos.x - dot.width() * 0.5,
     y:dotPos.y - dot.height() * 0.5,
-    scale:scale,
-    borderWidth:borderWidth,
-    // backgroundColor:backgroundColor,
-    borderColor:borderColor
+    scale:1,
+    borderWidth:0,
+    backgroundColor:backgroundColor
   });
 
-
-  // 画面全体
-  borderWidth = map(dist, 5, sh * 0.5, 0, sw * 0.75);
-
   TweenMax.set(stage, {
-    borderWidth:borderWidth,
-    borderColor:borderColor
+    borderWidth:0
   });
 
   window.requestAnimationFrame(update);

@@ -23,7 +23,7 @@
 ### ・だんだんと
 [http://ikeryou.jp/works/mov/int/1/1/](http://ikeryou.jp/works/mov/int/1/1/)  
 [ソース](https://github.com/ikeryou/interactive_1/blob/study1/docs/main.js)  
-```
+```js
 // 今の位置
 nowX = 0;
 nowY = 0;
@@ -48,7 +48,7 @@ function update() {
 ### ・バネっぽく
 [http://ikeryou.jp/works/mov/int/1/2/](http://ikeryou.jp/works/mov/int/1/2/)  
 [ソース](https://github.com/ikeryou/interactive_1/blob/study2/docs/main.js)  
-```
+```js
 // 今の位置
 nowX = 0;
 nowY = 0;
@@ -78,7 +78,7 @@ function update() {
 
 ## 開始位置と目標位置があれば何が分かる？
 ### ・２地点の距離
-```
+```js
 // 今の位置
 nowX = 0;
 nowY = 0;
@@ -107,7 +107,7 @@ dist = Math.sqrt(dx * dx + dy * dy);
 
 
 ### おまけ1 値の範囲変換
-```
+```js
 // @val     : 変換したい値
 // @toMin   : 変換後の最小値
 // @toMax   : 変換後の最大値
@@ -130,7 +130,7 @@ function map(val, toMin, toMax, fromMin, fromMax) {
 hoge = map(50, 0, 1, -100, 100):
 ```
 ### おまけ2 値の線形補間
-```
+```js
 // @from  : 始点
 // @to    : 終点
 // @alpha : 位置

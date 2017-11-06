@@ -52,13 +52,6 @@ function update() {
   dotPos.x += (tx - dotPos.x) * ease;
   dotPos.y += (ty - dotPos.y) * ease;
 
-  // 目標値に引っ張られるように近く
-  // power = 0.7; // 大きいとより引っ張られるようになる
-  // dotPos.vx += (tx - dotPos.x) * power;
-  // dotPos.vy += (ty - dotPos.y) * power;
-  // dotPos.x += (dotPos.vx *= power);
-  // dotPos.y += (dotPos.vy *= power);
-
   // ２地点の距離
   dx = tx - dotPos.x;
   dy = ty - dotPos.y;
@@ -86,7 +79,6 @@ function update() {
     y:dotPos.y - dot.height() * 0.5,
     scale:scale,
     borderWidth:borderWidth,
-    // backgroundColor:backgroundColor,
     borderColor:borderColor
   });
 

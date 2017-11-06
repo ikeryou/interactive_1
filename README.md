@@ -21,7 +21,8 @@
 
 ## いい感じに追従する公式
 ### ・だんだんと
-[http://ikeryou.jp/works/mov/int/1/1/](http://ikeryou.jp/works/mov/int/1/1/)
+[http://ikeryou.jp/works/mov/int/1/1/](http://ikeryou.jp/works/mov/int/1/1/)  
+[ソース](https://github.com/ikeryou/interactive_1/blob/study1/docs/main.js)  
 ```
 // 今の位置
 nowX = 0;
@@ -45,7 +46,8 @@ function update() {
 </video>
 
 ### ・バネっぽく
-[http://ikeryou.jp/works/mov/int/1/2/](http://ikeryou.jp/works/mov/int/1/2/)
+[http://ikeryou.jp/works/mov/int/1/2/](http://ikeryou.jp/works/mov/int/1/2/)  
+[ソース](https://github.com/ikeryou/interactive_1/blob/study2/docs/main.js)  
 ```
 // 今の位置
 nowX = 0;
@@ -91,12 +93,14 @@ dist = Math.sqrt(dx * dx + dy * dy);
 ```
 ### 例１ ２地点の距離をオブジェクトのスケールと背景色を決めるのに使用  
 [http://ikeryou.jp/works/mov/int/1/3/](http://ikeryou.jp/works/mov/int/1/3/)  
+[ソース](https://github.com/ikeryou/interactive_1/blob/study3/docs/main.js)  
 <video width="100%" autoplay loop>
 <source src="http://ikeryou.jp/works/mov/int/1/3.mp4">
 </video>
 
 ### 例２ ２地点の距離をオブジェクトのスケール、ボーダー(border-style:ridge;)の太さと色、そして、画面全体のボーダー(border-style:ridge;)の太さと色を決めるのに使用  
 [http://ikeryou.jp/works/mov/int/1/4/](http://ikeryou.jp/works/mov/int/1/4/)  
+[ソース](https://github.com/ikeryou/interactive_1/blob/study4/docs/main.js)  
 <video width="100%" autoplay loop>
 <source src="http://ikeryou.jp/works/mov/int/1/4.mp4">
 </video>

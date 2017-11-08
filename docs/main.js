@@ -65,7 +65,7 @@ function update() {
   dist = Math.sqrt(dx * dx + dy * dy);
 
   // スケール
-  scale = map(dist, 1, 4, 0, sw * 0.25);
+  scale = map(dist, 1, 6, 0, sw * 0.5);
 
   // ボーダーの太さ
   borderWidth = map(dist, 5, 50, 0, sw * 0.5);
@@ -79,24 +79,42 @@ function update() {
   alpha = map(dist, 0, 1, 0, sw * 0.25);
   borderColor = backgroundColor;
 
+  // ドロップシャドウCSSのあれつくる
+  offset  = map(dist, 0, 2, 0, sw * 0.25);
+  offsetX = map(dx, -1, 1, -sw * 0.25, sw * 0.25);
+  offsetY = map(dy, -1, 1, -sh * 0.25, sh * 0.25);
+
+  shadow = '';
+  gray = 0;
+  num = ~~(map(dist, 0, 100, 0, sw * 0.25));
+  for(var i = 0; i < num; i++) {
+    x = i * offset * offsetX;
+    y = i * offset * offsetY;
+    shadow += x + 'px ' + y + 'px 0px ' + backgroundColor;
+    if(i != num - 1){
+      shadow += ',';
+    }
+  }
+
   // オブジェクトの情報更新
   // 位置指定時、基準点を真ん中にするためサイズの半分だけずらす
   TweenMax.set(dot, {
     x:dotPos.x - dot.width() * 0.5,
     y:dotPos.y - dot.height() * 0.5,
     scale:scale,
-    borderWidth:borderWidth,
-    // backgroundColor:backgroundColor,
-    borderColor:borderColor
+    borderWidth:0,
+    backgroundColor:backgroundColor,
+    borderColor:borderColor,
+    boxShadow:shadow
   });
-
 
   // 画面全体
   borderWidth = map(dist, 5, sh * 0.5, 0, sw * 0.75);
 
   TweenMax.set(stage, {
-    borderWidth:borderWidth,
-    borderColor:borderColor
+    borderWidth:0,
+    backgroundColor:lerpColor({r:0,g:176,b:255}, {r:211,g:47,b:47}, 1 - alpha)
+    // borderColor:borderColor
   });
 
   window.requestAnimationFrame(update);
